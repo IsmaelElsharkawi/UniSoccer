@@ -41,8 +41,8 @@ class matchvoice_model_all_blocks(nn.Module):
                  load_checkpoint = True,
                  visual_encoder_checkpoint = "PATH_TO_VISUAL_BACKBONE_CHECKPOINT",
                  # LLM part
-                 llm_ckpt = "Meta-Llama-3-8B-Instruct",
-                 tokenizer_ckpt = "Meta-Llama-3-8B-Instruct",
+                 llm_ckpt = "meta-llama/Meta-Llama-3-8B-Instruct",
+                 tokenizer_ckpt = "meta-llama/Meta-Llama-3-8B-Instruct",
                  # Q-former part
                  max_frame_pos = 128,
                  window = 30,

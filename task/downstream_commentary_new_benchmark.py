@@ -190,7 +190,7 @@ if __name__ == "__main__":
     parser.add_argument("--open_llm_decoder", type=str2bool, default=False)
 
     parser.add_argument("--need_temporal", type=str, default="yes")
-    parser.add_argument("--tokenizer_name", type=str, default="Meta-Llama-3-8B-Instruct")
+    parser.add_argument("--tokenizer_name", type=str, default="meta-llama/Meta-Llama-3-8B-Instruct")
     parser.add_argument("--train_batch_size", type=int, default=32)
     parser.add_argument("--train_num_workers", type=int, default=16)
 

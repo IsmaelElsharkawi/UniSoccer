@@ -147,7 +147,7 @@ if __name__ == "__main__":
     parser.add_argument("--from_matchvision", type=bool, default=True)
     parser.add_argument("--load_from_npy", type=bool, default=True)
     parser.add_argument("--need_temporal", type=str, default="yes")
-    parser.add_argument("--tokenizer_name", type=str, default="Meta-Llama-3-8B-Instruct")
+    parser.add_argument("--tokenizer_name", type=str, default="meta-llama/Meta-Llama-3-8B-Instruct")
     parser.add_argument("--train_batch_size", type=int, default=40)
     parser.add_argument("--train_num_workers", type=int, default=20)
 
