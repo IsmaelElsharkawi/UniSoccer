@@ -39,7 +39,7 @@ class matchvoice_model_all_blocks(nn.Module):
     def __init__(self,
                  # Visual Encoder
                  load_checkpoint = True,
-                 visual_encoder_checkpoint = "PATH_TO_VISUAL_BACKBONE_CHECKPOINT",
+                 visual_encoder_checkpoint = "/content/pretrained_both.pth",
                  # LLM part
                  llm_ckpt = "meta-llama/Meta-Llama-3-8B-Instruct",
                  tokenizer_ckpt = "meta-llama/Meta-Llama-3-8B-Instruct",
