@@ -34,7 +34,7 @@ def inference(args):
     dataset_type = MatchVisionCommentary_new_benchmark_from_npy_Dataset
     commentary_model_type = matchvoice_model_all_blocks
     device_ids = args.device_ids
-    devices = [torch.device(f'cuda:{i}') for i in device_ids]
+    devices = ["cuda:0"]
 
     valid_json = []
     valid_video_base_dir = []
