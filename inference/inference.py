@@ -1,6 +1,6 @@
 import argparse
 import sys, os
-sys.path.append('PATH_TO_FOLDER_OF_THIS_PROJECT')
+sys.path.append('/content/UniSoccer')
 from dataset.MatchVision_commentary_new_benchmark_from_npy import MatchVisionCommentary_new_benchmark_from_npy_Dataset
 from model.matchvoice_model_all_blocks import matchvoice_model_all_blocks
 from torch.utils.data import DataLoader, random_split
