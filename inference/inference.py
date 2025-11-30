@@ -34,16 +34,16 @@ def inference(args):
     dataset_type = MatchVisionCommentary_new_benchmark_from_npy_Dataset
     commentary_model_type = matchvoice_model_all_blocks
     device_ids = args.device_ids
-    devices = ["cuda:0"]
+    devices = [torch.device(f'cuda:{i}') for i in device_ids]
 
-    valid_json = []
-    valid_video_base_dir = []
-    if args.valid_matchtime:
-        valid_json.append(args.matchtime_json)
-        valid_video_base_dir.append(args.matchtime_video_base)
-    if args.valid_soccerreplay:
-        valid_json.append(args.soccerreplay1988_json)
-        valid_video_base_dir.append(args.soccerreplay1988_video_base)
+    valid_json = ["/content/UniSoccer/train_data/json/SoccerNet-v2/classification_test.json"]
+    valid_video_base_dir = ["/content/drive/MyDrive/SoccerNet-Sample/CutVideos/"]
+    # if args.valid_matchtime:
+    #     valid_json.append(args.matchtime_json)
+    #     valid_video_base_dir.append(args.matchtime_video_base)
+    # if args.valid_soccerreplay:
+    #     valid_json.append(args.soccerreplay1988_json)
+    #     valid_video_base_dir.append(args.soccerreplay1988_video_base)
     
     val_dataset = dataset_type(json_file=valid_json,
                        video_base_dir=valid_video_base_dir)
@@ -108,11 +108,11 @@ if __name__ == "__main__":
     parser.add_argument("--valid_soccerreplay", type=bool, default=False)
 
     parser.add_argument("--num_features", type=int, default=768)
-    parser.add_argument("--device_ids", type=int, nargs="+", default=[4])
+    parser.add_argument("--device_ids", type=int, nargs="+", default=[0])
     parser.add_argument("--open_visual_encoder", type=bool, default=False)
     parser.add_argument("--open_llm_decoder", type=bool, default=False)
 
-    parser.add_argument("--ckpt_path", type=str, default="FILE_PATH_TO_MODEL_CHECKPOINT")
+    parser.add_argument("--ckpt_path", type=str, default="/content/pretrained_both.pth")
     parser.add_argument("--csv_out_path", type=str, default="inference/sample.csv")
 
     parser.add_argument("--matchtime_json", type=str, default="train_data/json/MatchTime/classification_test.json")
