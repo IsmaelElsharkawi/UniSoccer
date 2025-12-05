@@ -50,7 +50,7 @@ class matchvoice_model_all_blocks(nn.Module):
                  num_video_query_token = 32,
                  num_features = 512,
                 #  device = "cuda:0",
-                 inference = True,
+                 inference = False,
                  file_path = './words_world/merge.pkl',
                  need_temporal = True,
                  encoder_type = "spatial_and_temporal",

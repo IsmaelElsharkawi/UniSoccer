@@ -109,8 +109,8 @@ if __name__ == "__main__":
 
     parser.add_argument("--num_features", type=int, default=768)
     parser.add_argument("--device_ids", type=int, nargs="+", default=[0])
-    parser.add_argument("--open_visual_encoder", type=bool, default=False)
-    parser.add_argument("--open_llm_decoder", type=bool, default=False)
+    parser.add_argument("--open_visual_encoder", type=bool, default=True)
+    parser.add_argument("--open_llm_decoder", type=bool, default=True)
 
     parser.add_argument("--ckpt_path", type=str, default="/content/downstream_commentary_all_open.pth")
     parser.add_argument("--csv_out_path", type=str, default="inference/sample.csv")
