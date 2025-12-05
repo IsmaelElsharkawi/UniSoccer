@@ -112,7 +112,7 @@ if __name__ == "__main__":
     parser.add_argument("--open_visual_encoder", type=bool, default=False)
     parser.add_argument("--open_llm_decoder", type=bool, default=False)
 
-    parser.add_argument("--ckpt_path", type=str, default="/content/pretrained_both.pth")
+    parser.add_argument("--ckpt_path", type=str, default="/content/downstream_commentary_all_open.pth")
     parser.add_argument("--csv_out_path", type=str, default="inference/sample.csv")
 
     parser.add_argument("--matchtime_json", type=str, default="train_data/json/MatchTime/classification_test.json")

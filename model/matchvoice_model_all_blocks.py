@@ -39,7 +39,7 @@ class matchvoice_model_all_blocks(nn.Module):
     def __init__(self,
                  # Visual Encoder
                  load_checkpoint = True,
-                 visual_encoder_checkpoint = "/content/pretrained_both.pth",
+                 visual_encoder_checkpoint = "/content/downstream_commentary_all_open.pth",
                  # LLM part
                  llm_ckpt = "meta-llama/Meta-Llama-3-8B-Instruct",
                  tokenizer_ckpt = "meta-llama/Meta-Llama-3-8B-Instruct",
@@ -50,12 +50,12 @@ class matchvoice_model_all_blocks(nn.Module):
                  num_video_query_token = 32,
                  num_features = 512,
                 #  device = "cuda:0",
-                 inference = False,
+                 inference = True,
                  file_path = './words_world/merge.pkl',
                  need_temporal = True,
                  encoder_type = "spatial_and_temporal",
-                 open_visual_encoder = False,
-                 open_llm_decoder = False,
+                 open_visual_encoder = True,
+                 open_llm_decoder = True,
                  llm_lora_rank = 16,
                  llm_lora_dropout = 0.05,
                  **kwargs,
@@ -218,6 +218,9 @@ class matchvoice_model_all_blocks(nn.Module):
 
         if validating:
             temp_res_text = self.generate_text(inputs_llama)
+            if self.save_embeddings:
+                # Return embeddings along with text outputs
+                return temp_res_text, caption_text, video_path, video_hidden, inputs_llama
             return temp_res_text, caption_text, video_path
         
         visual_label = torch.full((batch_size, self.num_video_query_token), -100, dtype=targets.dtype).to(inputs_llama.device)
