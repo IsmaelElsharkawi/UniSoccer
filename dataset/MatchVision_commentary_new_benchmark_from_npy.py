@@ -66,7 +66,7 @@ class MatchVisionCommentary_new_benchmark_from_npy_Dataset(Dataset):
         frames = torch.cat([self.transform(images=frame, return_tensors="pt")["pixel_values"] for frame in frames], dim=0)
         frames = rearrange(frames, 't c h w -> c t h w')
 
-        caption = video_info['comments_text_anonymized']
+        caption = "Dummy caption for video commentary generation."
 
         caption_tokens = self.tokenizer(
                 caption,
