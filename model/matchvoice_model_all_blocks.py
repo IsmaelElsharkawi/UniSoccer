@@ -218,9 +218,9 @@ class matchvoice_model_all_blocks(nn.Module):
 
         if validating:
             temp_res_text = self.generate_text(inputs_llama)
-            if self.save_embeddings:
-                # Return embeddings along with text outputs
-                return temp_res_text, caption_text, video_path, video_hidden, inputs_llama
+            # if self.save_embeddings:
+            #     # Return embeddings along with text outputs
+            #     return temp_res_text, caption_text, video_path, video_hidden, inputs_llama
             return temp_res_text, caption_text, video_path
         
         visual_label = torch.full((batch_size, self.num_video_query_token), -100, dtype=targets.dtype).to(inputs_llama.device)
